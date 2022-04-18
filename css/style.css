@@ -1,0 +1,88 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+section
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(grupoCarros.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: auto;
+}
+section .box
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7) url(grupoCarros.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+
+}
+
+section .box h2
+{
+    position: absolute;
+    color: #fff;
+    font-size: 10em;
+    z-index: 1;
+
+
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh;
+    background: #031321;
+    font-family: 'Poppins', sans-serif;
+
+}
+a
+{
+    position: relative;   
+    top: 190px;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+    z-index: 1;
+    transform: translate(0,0);
+    transform: translate(calc(var(--x)/70), calc(var(--y)/70));
+
+}
+a:hover
+{
+    color: rgb(0, 0, 0);
+    background: #fff;
+    box-shadow: 0 0 10px #fff,0 0 40px #fff,0 0 80px #fff;
+    
+}
+
