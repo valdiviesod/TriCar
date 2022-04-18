@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+:root{
+    --color_uno:black;
+}
 section
 {
     position: absolute;
@@ -36,6 +39,7 @@ section .box
     background-position: center;
     background-attachment: fixed;
     background-blend-mode: darken;
+    color: var(--color_uno);
 
 }
 
