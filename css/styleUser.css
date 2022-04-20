@@ -52,3 +52,9 @@ body {
  .select:hover::after {
     color: #23b499;
  }
+
+ .centrado{
+   display:block;
+   margin-left: auto;
+   margin-right: auto;
+ }
