@@ -5,56 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.Lux.css">
-    <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" type= "text/css" href="./css/style.css">
-    <title>TriCar</title>
-
 </head>
 
 <body>
- 
-
-    <a href="./views/login.html" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Iniciar Sesión  
-    </a>
-
-    <a href="./views/register.html" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Registrarse 
-    </a>
- 
-    <section>
-        <div class="box">
-            <h2>TriCar</h2>
-        </div>
-        <div class="info">
-            <h2></h2>
-        </div>
-
-    
-        
-    </section>
-
-    <script>
-        const pos = document.documentElement;
-        pos.addEventListener("mousemove", e =>{
-            pos.style.setProperty('--x', e.clientX + "px");
-            pos.style.setProperty('--y', e.clientY + "px");
-        })
-    </script>
-
-
-
+    <div class="container">
+        <section class="one"> 
+            <header id="navbar">
+                <a href="#" class="logo">TRICAR</a>
+                <ul>
+                    <li><a href="#bottom">¿Quienes somos?</a></li>
+                    <li><a href="./views/login.html">Iniciar sesión</a></li>
+                    <li><a href="./views/register.html">Registrarse</a></li>
+                </ul>
+            </header>
+            <div class="content">
+                <div class="bannerText">
+                    <div class="active">
+                        <h2>Bucaramanga</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ea rerum ducimus voluptates. Similique reiciendis id debitis ab unde mollitia dolor praesentium sit architecto iure. Quia illo magnam eos nulla.</p>
+                    </div>   
+                </div>
+            </div>
+        </section>
+        <section class="two" id="bottom">
+            <div class="content">
+                <div class="bannerText">
+                <h2>¿Quienes somos?</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum illo nemo expedita aspernatur eligendi doloribus. Temporibus aliquid iste soluta animi assumenda voluptas facere nostrum molestias vero omnis dolor, quasi doloribus.</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
 </body>
+
 
 </html>

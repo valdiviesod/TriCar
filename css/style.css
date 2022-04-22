@@ -1,92 +1,162 @@
-*
-{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins',sans-serif;
 }
-:root{
-    --color_uno:black;
+
+::-webkit-scrollbar{ /*Editar la barra de scroll*/
+    width: 7px;
+    background: #000000;
 }
-section
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+::-webkit-scrollbar-thumb{
+    background: #414141;
+    border-radius: 10px;
+    border-right: 2px solido #021b79;
+}
+ 
+section{ /*Config general */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(grupoCarros.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    overflow: auto;
+    
+    scroll-snap-align: start;
 }
-section .box
-{
+
+.container{ /*Config general del scroll */
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth;
+    
+}
+.one { /*Fondo config*/
+    background:
+           /* top, transparent black, faked with gradient */ 
+           linear-gradient(
+             rgba(0, 0, 0, 0.7), 
+             rgba(0, 0, 0, 0.7)
+           ),
+           /* bottom, image */
+           url(../img/buca.jpg);
+    background-size: 100%;    
+}
+
+.one{ /*Config del inicio */
+    position: relative;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+
+.one header{ /*Config de la barra de arriba */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7) url(grupoCarros.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-blend-mode: darken;
-    color: var(--color_uno);
-
+    padding: 30px 100px;
 }
-
-section .box h2
-{
-    position: absolute;
+.one header .logo{ /*Config del logo a la izquierda*/
+    font-weight: 700;
     color: #fff;
-    font-size: 10em;
-    z-index: 1;
-
-
-}
-body
-{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    min-height: 100vh;
-    background: #031321;
-    font-family: 'Poppins', sans-serif;
-
-}
-a
-{
-    position: relative;   
-    top: 190px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    font-size: 1.8em;
     text-decoration: none;
-    font-size: 24px;
-    overflow: hidden;
-    transition: 0.2s;
-    z-index: 1;
-    transform: translate(0,0);
-    transform: translate(calc(var(--x)/70), calc(var(--y)/70));
-
 }
-a:hover
+.one header ul /*Config de las medidas de la barra*/
 {
-    color: rgb(0, 0, 0);
-    background: #fff;
-    box-shadow: 0 0 10px #fff,0 0 40px #fff,0 0 80px #fff;
-    
+    position: relative;
+    display: flex;
+}
+.one header ul li
+{
+    list-style: none;
+    margin: 0 20px;
+}
+.one header ul li a /*Config de los botones de la izquierda*/
+{
+    position: relative;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 4px 10px;
+    color: #fff;
+}
+.one header ul li a:hover /*Al pasarle el click encima a los botones*/
+{
+    background:#fff;
+    color: #111;
+
+}
+.one .content{ /* Config del contenido de Florida/Buca/piede/giron */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.one .content .bannerText
+{
+    position: relative;
+    max-width: 700px;
+}
+.one .content .bannerText div
+{
+    display: none;
+    transition: 0.5s ease-in-out;
+}
+.one .content .bannerText div.active
+{
+    display: initial;
+}
+.one .content .bannerText div h2
+{
+    color: #fff;
+    font-size: 6em;
+    line-height: 1em;
+    font-weight: 700;
+}
+.one .content .bannerText div p
+{
+   color: #fff;
+   font-size: 18px;
+   margin: 20px 0; 
 }
 
+
+
+
+.two{/*Sección ¿Quienes somos?*/
+        background:
+               /* top, transparent black, faked with gradient */ 
+               linear-gradient(
+                 rgba(0, 0, 0, 0.84), 
+                 rgba(0, 0, 0, 0.84)
+               ),
+               /* bottom, image */
+               url(../img/grupoCarros.jpg);
+        background-size: 100%;
+        position: relative;
+        padding: 0 100px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 100vh;  
+}
+.two .content .bannerText h2
+{
+    color: #fff;
+    font-size: 6em;
+    line-height: 1em;
+    font-weight: 700;
+}
+.two .content .bannerText p
+{
+   color: #fff;
+   font-size: 18px;
+   margin: 20px 0; 
+}
