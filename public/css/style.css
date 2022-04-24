@@ -39,7 +39,7 @@ section{ /*Config general */
              rgba(0, 0, 0, 0.7)
            ),
            /* bottom, image */
-           url(../img/buca.jpg);
+           url(/img/buca.jpg);
     background-size: 100%;    
 }
 
@@ -138,7 +138,7 @@ section{ /*Config general */
                  rgba(0, 0, 0, 0.84)
                ),
                /* bottom, image */
-               url(../img/grupoCarros.jpg);
+               url(/img/grupoCarros.jpg);
         background-size: 100%;
         position: relative;
         padding: 0 100px;

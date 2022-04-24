@@ -30,6 +30,10 @@ app.use(session({
 //Se llama a la conexion de la BD
 const connection = require('./database/db');
 
+app.get("/",(req,res)=>{
+	res.render("index")
+})
+
 
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
