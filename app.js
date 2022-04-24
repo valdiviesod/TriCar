@@ -17,6 +17,8 @@ app.use(express.static('img'));
 // Estableciendo el motor de plantillas
 app.set('view engine','ejs');
 
+const bcrypt = require('bcryptjs');
+
 
 //Variables de inicio de sesion
 const session = require('express-session');
@@ -30,6 +32,7 @@ app.use(session({
 //Se llama a la conexion de la BD
 const connection = require('./database/db');
 const req = require('express/lib/request');
+const bcryptjs = require('bcryptjs');
 
 
 app.get('/',(req,res)=>{
@@ -48,6 +51,10 @@ app.get('/conductor',(req,res)=>{
 	res.render('conductor')
 })
 
+app.get('/usuarioComun',(req,res)=>{
+	res.render('usuarioComun')
+})
+
 //Registro
 app.post('/register', async (req,res) =>{
 	const name = req.body.name;
@@ -59,7 +66,8 @@ app.post('/register', async (req,res) =>{
 	const email = req.body.email;
 	const passwd = req.body.pass;
 	const rol = req.body.rol;
-	connection.query('INSERT INTO users SET ?', {nombre:name, apellido:last, direccion:adress, telefono:phone, nacimiento:date, email:email, id:id, passwd:passwd, rol:rol}, async(error, results) =>{
+	let passwordHash = await bcrypt.hash(passwd, 8);
+	connection.query('INSERT INTO users SET ?', {nombre:name, apellido:last, direccion:adress, telefono:phone, nacimiento:date, email:email, id:id, passwd:passwordHash, rol:rol}, async(error, results) =>{
 		if(error){
 			console.log(error)
 		}else{
@@ -76,8 +84,54 @@ app.post('/register', async (req,res) =>{
 
 	})
 
-
 })
+
+app.post('/auth', async(req, res)=> {
+	const user = req.body.email
+	const passwd = req.body.pass
+	let passwordHash = await bcryptjs.hash(passwd, 8);
+	if (user && passwd){
+		connection.query('SELECT * FROM users WHERE email = ?', [user] , async(error, results)=>{
+			if(results.length ==0 || !(await bcryptjs.compare(passwd, results[0].passwd))){
+				res.render('login',{
+					alert: true,
+                    alertTitle: "Error",
+                    alertMessage: "Usuario y/o contraseña incorrectas",
+                    alertIcon:'error',
+                    showConfirmButton: true,
+                    timer: false,
+                    ruta: 'login'    
+				});
+
+
+			}else{
+				req.session.loggedin = true;                
+				req.session.name = results[0].name;
+				res.render('login', {
+					alert: true,
+					alertTitle: "Conexión exitosa",
+					alertMessage: "¡Inicio de sesion exitoso!",
+					alertIcon:'success',
+					showConfirmButton: false,
+					timer: 1500,
+					ruta: 'usuarioComun'
+				});   
+			}
+			res.end();
+		})
+
+	}else{
+		res.render('login', {
+			alert: true,
+			alertTitle: "Advertencia",
+			alertMessage: "Por favor ingrese un usuario y una contraseña",
+			alertIcon:'warning',
+			showConfirmButton: true,
+			timer: false,
+			ruta: 'login'
+		});   
+	}
+});
 
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
