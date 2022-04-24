@@ -18,8 +18,6 @@ app.use(express.static('img'));
 app.set('view engine','ejs');
 
 
-const bcrypt = require('bcryptjs');
-
 //Variables de inicio de sesion
 const session = require('express-session');
 app.use(session({
@@ -32,7 +30,7 @@ app.use(session({
 //Se llama a la conexion de la BD
 const connection = require('./database/db');
 const req = require('express/lib/request');
-const bcryptjs = require('bcryptjs');
+
 
 app.get('/',(req,res)=>{
 	res.render('index')
@@ -55,14 +53,13 @@ app.post('/register', async (req,res) =>{
 	const id = req.body.id;
 	const date = req.body.bdate;
 	const email = req.body.email;
-	const passwd = req.body.passwd;
+	const passwd = req.body.pass;
 	const rol = req.body.rol;
-	let passwordHash = await bcrypt.hash(pass, 8);
-	connection.query('INSERT INTO users SET ?', {nombre:name, apellido:last, direccion:adress, telefono:phone, nacimiento:date, email:email, id:id, passwd:passwordHash, rol:rol}, async(error, results) =>{
+	connection.query('INSERT INTO users SET ?', {nombre:name, apellido:last, direccion:adress, telefono:phone, nacimiento:date, email:email, id:id, passwd:passwd, rol:rol}, async(error, results) =>{
 		if(error){
 			console.log(error)
 		}else{
-			res.send("El usuario ha sido registrado")
+			res.send('El usuario ha sido registrado')
 		}
 
 	})
