@@ -59,7 +59,15 @@ app.post('/register', async (req,res) =>{
 		if(error){
 			console.log(error)
 		}else{
-			res.send('El usuario ha sido registrado')
+			res.render('register', {
+				alert: true,
+				alertTitle: "Registro",
+				alertMessage: "¡Registro exitoso!",
+				alertIcon: 'success',
+				showConfirmButton: false,
+				timer: 1500,
+				ruta: ''
+			})
 		}
 
 	})

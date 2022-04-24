@@ -21,8 +21,14 @@
             <input type="text" name="adress" required tabindex="3">
             <label for="user">Numero de telefono</label>
             <input type="text" name="phone" required tabindex="4">
+            <small id="names" class="form-text text-muted">Ingrese solo numeros.</small>
+            <br>
+            <br>
             <label for="user">Identificacion</label>
             <input type="text" name="id" required tabindex="5">
+            <small id="names" class="form-text text-muted">Ingrese solo numeros.</small>
+            <br>
+            <br>
             <label for="user">Fecha de nacimiento</label>
             <input type="text" name="bdate" required tabindex="6">
             <label for="user">Correo electronico</label>
@@ -45,20 +51,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <% if (typeof alert !="undefined" ) { %>
+    <% if(typeof alert != "undefined"){ %>
         <script>
             Swal.fire({
                 title: '<%= alertTitle %>',
-                text: '<%= alertMessage %>',
+                text: '<%= alertMessage%>',
                 icon: '<%= alertIcon %>',
-                showConfirmButton: <%= showConfirmButton %>,
+                showConfirmButton: <%= showConfirmButton%> ,
                 timer: <%= timer %>
- }).then(() => {
-                    window.location = '/<%= ruta %>'
-                })
+            }).then(()=>{
+                window.location= 'usuarioComun <%= ruta %>'
+            })
         </script>
         <% } %>
-            </div>
 </body>
 
 </html>
