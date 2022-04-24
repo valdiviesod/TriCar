@@ -34,9 +34,9 @@
             <label for="user">Correo electronico</label>
             <input type="text" name="email" required tabindex="7">
 
-            <label for="rol">Rol</label>
+            <label for="rol">Tipo de Usuario</label>
             <select id="rol" name="rol" class="select-css" tabindex="8">
-                <option value="admin" selected>Admin</option>
+                <option value="conductor" selected>Conductor</option>
                 <option value="user">Usuario comun</option>
             </select>
             <br>
@@ -60,7 +60,7 @@
                 showConfirmButton: <%= showConfirmButton%> ,
                 timer: <%= timer %>
             }).then(()=>{
-                window.location= 'usuarioComun <%= ruta %>'
+                window.location= '/ <%= ruta %>'
             })
         </script>
         <% } %>

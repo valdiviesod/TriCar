@@ -44,6 +44,10 @@ app.get('/register',(req,res)=>{
 	res.render('register')
 })
 
+app.get('/conductor',(req,res)=>{
+	res.render('conductor')
+})
+
 //Registro
 app.post('/register', async (req,res) =>{
 	const name = req.body.name;
