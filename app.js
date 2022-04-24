@@ -51,8 +51,8 @@ app.get('/conductor',(req,res)=>{
 	res.render('conductor')
 })
 
-app.get('/prueba',(req,res)=>{
-	res.render('prueba')
+app.get('/usuarioComun',(req,res)=>{
+	res.render('usuarioComun')
 })
 
 //Registro
