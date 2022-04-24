@@ -12,6 +12,8 @@ dotenv.config({ path: './env/.env'});
 app.use('/resources',express.static('public'));
 app.use('/resources', express.static(__dirname + '/public'));
 
+app.use(express.static('img'));
+
 // Estableciendo el motor de plantillas
 app.set('view engine','ejs');
 
@@ -33,6 +35,7 @@ const connection = require('./database/db');
 app.get("/",(req,res)=>{
 	res.render("index")
 })
+
 
 
 app.listen(3000, (req, res)=>{
