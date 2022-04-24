@@ -38,28 +38,44 @@
             <input id="ruta">
             <button>Agregar</button>
         </form>
+
     </div>
-
-    <br>
-
-    <h3>Su ruta actual:</h3>
-
-    <div class="tabla">
-    <table>
-        <td>esto es una tabla</td>
-    </table>
-    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <style>
-        td{
-            text-align: center;
-            padding: 10px;
-            border: solid rgba(157, 157, 157, 0.951);
-        }
-        .tabla table{
-            margin: 0 auto;
-        }
+    #contenedor li {
+        padding: 18px;
+        margin: 8px 0;
+        background: #ddd;
+        list-style: none;
+    }
+    #contenedor li a {
+        cursor: pointer;
+        float: right;
+        padding: 3px 7px;
+        background: #fbfbfb;
+    }
     </style>
+    <script>
 
+        //Función  crear elemento
+        function crear_elemento(){
+            $('#contenedor').append('<li>Contenido ' + Math.random() + ' <a onclick="eliminar_elemento(this);">&times;</a></li>');
+        }
+        
+        //Función eliminar elemento
+        function eliminar_elemento(valor){
+             valor.parentNode.parentNode.removeChild(valor.parentNode);
+        }
+        
+        
+        </script>
+<br><br>
+<div id="contenedor">
+    <li>Contenido 1<a onclick="eliminar_elemento(this);">&times;</a></li>
+    <li>Contenido 2<a onclick="eliminar_elemento(this);">&times;</a></li>
+</div>
+
+ <input type="button" value="Agregar elemento" onclick="crear_elemento();" style="float: right;">
 </body>
 
 </html>
