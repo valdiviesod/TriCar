@@ -93,15 +93,45 @@ app.post('/auth', async(req, res)=> {
 	if (user && passwd){
 		connection.query('SELECT * FROM users WHERE email = ?', [user] , async(error, results)=>{
 			if(results.length ==0 || !(await bcryptjs.compare(passwd, results[0].passwd))){
-				res.send('Usuario o contraseña incorrectas');
+				res.render('login',{
+					alert: true,
+                    alertTitle: "Error",
+                    alertMessage: "Usuario y/o contraseña incorrectas",
+                    alertIcon:'error',
+                    showConfirmButton: true,
+                    timer: false,
+                    ruta: 'login'    
+				});
 
 
 			}else{
-				res.send('Inicio de sesion exitoso');
+				req.session.loggedin = true;                
+				req.session.name = results[0].name;
+				res.render('login', {
+					alert: true,
+					alertTitle: "Conexión exitosa",
+					alertMessage: "¡Inicio de sesion exitoso!",
+					alertIcon:'success',
+					showConfirmButton: false,
+					timer: 1500,
+					ruta: 'usuarioComun'
+				});   
 			}
+			res.end();
 		})
+
+	}else{
+		res.render('login', {
+			alert: true,
+			alertTitle: "Advertencia",
+			alertMessage: "Por favor ingrese un usuario y una contraseña",
+			alertIcon:'warning',
+			showConfirmButton: true,
+			timer: false,
+			ruta: 'login'
+		});   
 	}
-})
+});
 
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
