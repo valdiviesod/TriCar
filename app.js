@@ -134,7 +134,7 @@ app.post('/auth', async(req, res)=> {
 //Autenticacion para todas las paginas
 app.get('/', (req, res)=> {
 	if (req.session.loggedin) {
-		res.render('index',{
+		res.render('usuario',{
 			login: true,
 			email: req.session.email		
 		});		
