@@ -34,10 +34,8 @@ const connection = require('./database/db');
 const req = require('express/lib/request');
 const bcryptjs = require('bcryptjs');
 
+//Renderizado de las vistas con ejs
 
-app.get('/',(req,res)=>{
-	res.render('index')
-})
 
 app.get('/login',(req,res)=>{
 	res.render('login')
@@ -55,7 +53,7 @@ app.get('/usuarioComun',(req,res)=>{
 	res.render('usuarioComun')
 })
 
-//Registro
+//Registro y mensajes de advertencias
 app.post('/register', async (req,res) =>{
 	const name = req.body.name;
 	const last = req.body.last;
@@ -65,9 +63,8 @@ app.post('/register', async (req,res) =>{
 	const date = req.body.bdate;
 	const email = req.body.email;
 	const passwd = req.body.pass;
-	const rol = req.body.rol;
 	let passwordHash = await bcrypt.hash(passwd, 8);
-	connection.query('INSERT INTO users SET ?', {nombre:name, apellido:last, direccion:adress, telefono:phone, nacimiento:date, email:email, id:id, passwd:passwordHash, rol:rol}, async(error, results) =>{
+	connection.query('INSERT INTO users SET ?', {nombre:name, apellido:last, direccion:adress, telefono:phone, nacimiento:date, email:email, id:id, passwd:passwordHash}, async(error, results) =>{
 		if(error){
 			console.log(error)
 		}else{
@@ -86,6 +83,7 @@ app.post('/register', async (req,res) =>{
 
 })
 
+//Validacion de usuarios
 app.post('/auth', async(req, res)=> {
 	const user = req.body.email
 	const passwd = req.body.pass
@@ -114,7 +112,7 @@ app.post('/auth', async(req, res)=> {
 					alertIcon:'success',
 					showConfirmButton: false,
 					timer: 1500,
-					ruta: 'usuarioComun'
+					ruta: ''
 				});   
 			}
 			res.end();
@@ -131,6 +129,22 @@ app.post('/auth', async(req, res)=> {
 			ruta: 'login'
 		});   
 	}
+});
+
+//Autenticacion para todas las paginas
+app.get('/', (req, res)=> {
+	if (req.session.loggedin) {
+		res.render('index',{
+			login: true,
+			email: req.session.email		
+		});		
+	} else {
+		res.render('index',{
+			login:false,
+			email:'Debe iniciar sesión',			
+		});				
+	}
+	res.end();
 });
 
 app.listen(3000, (req, res)=>{
