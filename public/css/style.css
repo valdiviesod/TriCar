@@ -201,12 +201,12 @@ body{
     color: #ffffff;
   }
   .btn-login:hover,.btn-login:active{
-    color:#fff;
-    background-color:#61428f;
-    border-color:#61428f
+    color:rgb(0, 0, 0);
+    background-color:#ffffff;
+    border-color:#ffffff
   }
   .btn-login:focus{
-    box-shadow:0 0 0 3px rgba(121,82,179,0.25)
+    box-shadow:0 0 0 3px #9f9f9f
   }
   
   /* Estilos boton REGISTER*/
@@ -220,7 +220,7 @@ body{
     font-weight: bold;
     font-size: large;
     color: #ffffff;
-    margin-top: 20px;
+    margin-top: 20px; 
     /* Para dar la apariencia de un boton */
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -228,14 +228,13 @@ body{
     text-decoration: none;  
   }
   .btn-register:hover,.btn-register:active{
-    color:#fff;
-    background-color: #10B981;
-    border-color:#10B981
+    color:rgb(0, 0, 0);
+    background-color: #fff;
   ;
   }
-  .btn-register:focus{
-    box-shadow:0 0 0 3px #10B981;
-  }
+    .btn-register:focus{
+      box-shadow:0 0 0 3px #9f9f9f;
+    }
   
   
   
@@ -251,8 +250,8 @@ body{
   }
   
   .a-login:hover, .a-login:active {
-    background-color: #10B981;
-    color: white;
+    background-color: #dbdbdb;
+    color: rgb(0, 0, 0);
   }
   
   /* Estilos de link para realizar el LOGOUT*/
@@ -319,9 +318,9 @@ body{
     text-decoration: none;  
   }
   .btn-save:hover,.btn-save:active{
-    color:#fff;
-    background-color: #1E3A8A;
-    border-color:#1E3A8A;
+    color:rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-color:#ffffff;
   }
   .btn-save:focus{
     box-shadow:0 0 0 3px #1E3A8A;
