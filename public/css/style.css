@@ -448,8 +448,9 @@ body{
 }
 
 .boton {
-  margin: 0;
-  
+  position: relative;
+  bottom:20px;
+  left: 550px;
   text-decoration:none;
   font-weight: 600;
   font-size: 20px;
@@ -459,8 +460,52 @@ body{
   padding-left:40px;
   padding-right:40px;
   background-color:#ffffff;
-  border-color: #d8d8d8;
+  border-color: #ffffff;
   border-width: 3px;
   border-style: solid;
   border-radius:35px;
   }
+
+.boton:hover {
+    background-color:#000000;
+    border-color: #000000;
+    color: #ffffff;
+    }
+
+    .boton2 {
+      position: relative;
+      top: 50px;
+      left: 280px;
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 20px;
+      color:#000000;
+      padding-top:15px;
+      padding-bottom:15px;
+      padding-left:40px;
+      padding-right:40px;
+      background-color:#ffffff;
+      border-color: #ffffff;
+      border-width: 3px;
+      border-style: solid;
+      border-radius:35px;
+      }
+    
+    .boton2:hover {
+        background-color:#000000;
+        border-color: #000000;
+        color: #ffffff;
+        }
+    
+    
+.textico h2
+{
+    color: #fff;
+    font-size: 2em;
+    line-height: 1em;
+    font-weight: 700;
+    position: relative;
+    bottom: 100px;
+    right: 120px;
+    text-decoration: none;
+}
