@@ -104,7 +104,7 @@ app.post('/auth', async(req, res)=> {
 
 			}else{
 				req.session.loggedin = true;                
-				req.session.name = results[0].nombre + " " + results[0].nombre;
+				req.session.name = results[0].name;
 				res.render('login', {
 					alert: true,
 					alertTitle: "Conexión exitosa",
@@ -136,7 +136,7 @@ app.get('/', (req, res)=> {
 	if (req.session.loggedin) {
 		res.render('usuario',{
 			login: true,
-			name: req.session.name	
+			email: req.session.email		
 		});		
 	} else {
 		res.render('index',{

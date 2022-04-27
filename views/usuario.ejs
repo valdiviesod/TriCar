@@ -14,10 +14,10 @@
           <div class="contenedor">
             <h1>Página de Inicio</h1>
             <% if (login) { %>                
-                <h1>Usuario conectado: <strong><%= name %></strong></h1>                        
+                <h1>Usuario conectado: <strong><%= email %></strong></h1>                        
                 <a href="logout" class="a-logout">Cerrar sesión</a>
             <%} else { %>
-                <h1><strong><%= name %></strong></h1>   
+                <h1><strong><%= email %></strong></h1>   
                 <a href="login" class="a-login">Inicie sesión</a>
             <% } %>
           </div>
