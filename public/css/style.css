@@ -128,8 +128,6 @@ section{ /*Config general */
 }
 
 
-
-
 .two{/*Sección ¿Quienes somos?*/
         background:
                /* top, transparent black, faked with gradient */ 
@@ -381,3 +379,88 @@ body{
    .select-css option {
     font-weight:normal;
    }
+
+
+  /*PAGINA INICIAL DEL USUARIO*/
+
+  .one1 { /*Fondo config*/
+    background:
+           /* top, transparent black, faked with gradient */ 
+           linear-gradient(
+             rgba(0, 0, 0, 0.7), 
+             rgba(0, 0, 0, 0.7)
+           ),
+           /* bottom, image */
+           url(./img/ciudad.jpg);
+    background-size: 100%;    
+}
+
+.one1{ /*Config del inicio */
+    position: relative;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+
+.one1 header{ /*Config de la barra de arriba */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+}
+.one1 header .logo{ /*Config del logo a la izquierda*/
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.8em;
+    text-decoration: none;
+}
+.one1 header ul /*Config de las medidas de la barra*/
+{
+    position: relative;
+    display: flex;
+}
+.one1 header ul li
+{
+    list-style: none;
+    margin: 0 20px;
+}
+.one1 header ul li a /*Config de los botones de la izquierda*/
+{
+    position: relative;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 4px 10px;
+    color: #fff;
+}
+.one1 header ul li a:hover /*Al pasarle el click encima a los botones*/
+{
+    background:#fff;
+    color: #111;
+
+}
+
+.boton {
+  margin: 0;
+  
+  text-decoration:none;
+  font-weight: 600;
+  font-size: 20px;
+  color:#000000;
+  padding-top:15px;
+  padding-bottom:15px;
+  padding-left:40px;
+  padding-right:40px;
+  background-color:#ffffff;
+  border-color: #d8d8d8;
+  border-width: 3px;
+  border-style: solid;
+  border-radius:35px;
+  }
