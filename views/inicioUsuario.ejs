@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
 </head>
 
 <body>
     <div class="container">
         <section class="one1"> 
             <header id="navbar">
-                <a href="#" class="logo">TRICAR</a>
-                <ul>
-                    <li><a href="#bottom">Cerrar Sesion</a></li>           
-                </ul>
+                <% if (login) { %>                                   
+                    <a href="#" class="logo">Bienvenido a TRICAR <strong><%= name %></strong></a>
+                    <ul>
+                        <li><a href="logout">Cerrar Sesion</a></li>           
+                    </ul>
+                <% } %>
+                
+                
             </header>
                 <div class="content">
-                    <a href="#" class="boton">Ver rutas disponibles</a> 
+                    <a href="seleccionRuta" class="boton">Ver rutas disponibles</a> 
                 </div>
                 <div class="content2">
                     <a href="#" class="boton2">Crear nueva ruta</a>
