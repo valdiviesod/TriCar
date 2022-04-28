@@ -12,13 +12,21 @@
   </head>
   <body class="text-center">         
           <div class="contenedor">
-            <h1>Página de Inicio</h1>
+            <h1>HOLA QUE HACE</h1>
             <% if (login) { %>                
+<<<<<<< HEAD
                 <h1>Usuario conectado: <strong><%= email %></strong></h1>                        
                 <a href="logout" class="a-logout">Cerrar sesión</a>
             <%} else { %>
                 <h1><strong><%= email %></strong></h1>   
                 <a href="login" class="a-login">Inicie sesión</a>
+=======
+                <h1>Usuario conectado: <strong><%= name %></strong></h1>                        
+                <a href="logout" class="a-logout">Logout</a>
+            <%} else { %>
+                <h1><strong><%= name %></strong></h1>   
+                <a href="login" class="a-login">Ir a Login</a>
+>>>>>>> temp-branch
             <% } %>
           </div>
   </body>

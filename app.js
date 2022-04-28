@@ -45,13 +45,14 @@ app.get('/register',(req,res)=>{
 	res.render('register')
 })
 
-app.get('/conductor',(req,res)=>{
-	res.render('conductor')
+app.get('/seleccionRuta',(req,res)=>{
+	res.render('seleccionRuta')
 })
 
-app.get('/usuarioComun',(req,res)=>{
-	res.render('usuarioComun')
-})
+
+
+
+
 
 //Registro y mensajes de advertencias
 app.post('/register', async (req,res) =>{
@@ -104,7 +105,11 @@ app.post('/auth', async(req, res)=> {
 
 			}else{
 				req.session.loggedin = true;                
+<<<<<<< HEAD
 				req.session.name = results[0].name;
+=======
+				req.session.name = results[0].nombre + " " + results[0].apellido;
+>>>>>>> temp-branch
 				res.render('login', {
 					alert: true,
 					alertTitle: "Conexión exitosa",
@@ -134,7 +139,7 @@ app.post('/auth', async(req, res)=> {
 //Autenticacion para todas las paginas
 app.get('/', (req, res)=> {
 	if (req.session.loggedin) {
-		res.render('usuario',{
+		res.render('inicioUsuario',{
 			login: true,
 			email: req.session.email		
 		});		
@@ -146,6 +151,20 @@ app.get('/', (req, res)=> {
 	}
 	res.end();
 });
+
+app.use(function(req, res, next) {
+    if (!req.user)
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next();
+});
+
+ 
+app.get('/logout', function (req, res) {
+	req.session.destroy(() => {
+	  res.redirect('/') 
+	})
+});
+
 
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
